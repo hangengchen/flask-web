@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Register - Horizon-Music</title>
+    <link rel="stylesheet" href="static/external/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="static/external/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="static/external/css/smoothproducts.css">
+    <link rel="shortcut icon" href="static/custom/img/Logo.ico">
+    <link rel="bookmark" href="static/custom/img/Logo.ico">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+        <div class="container"><a class="navbar-brand logo" href="/">Horizon-Music</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navcol-1">
+                <ul class="nav navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link active" href="/">All Music</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/mysonglist" style="color:red;">My Song List</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/login" style="color:orange;">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/register" style="color:green;">Register</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/admin" style="color:blue;">Administration</a></li>
+                </ul>
+                <form class="form-inline mt-3 mt-md-0" action="/results" method="post">
+                <!--a input div to get user input-->
+                <!--use post function-->
+                <input class="form-control mr-sm-2" type="text" name="phrase" required="required"
+                       placeholder="What would you like?"
+                       aria-label="Search" {{disabled}} style="border-radius: 10px;">
+                <!--the submit button-->
+                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit" {{ disabled }}>Start looking</button>
+            </form>
+            </div>
+        </div>
+    </nav>
+    <main class="page registration-page">
+        <section class="clean-block clean-form dark">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">Registration</h2>
+                    <p>{{ info }} {{ info2 }}</p>
+                    <p>{{ info3 }}</p>
+                </div>
+                <form method="post">
+                    <div class="form-group">
+                        <label for="role">Role</label>
+                        <div>
+                            <input type="radio" name="role" checked="checked" value="user"> User
+                            <input type="radio" name="role" value="business"> Business
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input class="form-control item" type="email" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input class="form-control item" type="password" id="password" name="password">
+                    </div>
+                    <button class="btn btn-primary btn-block" type="submit">Sign Up</button>
+                </form>
+            </div>
+        </section>
+    </main>
+    <footer class="page-footer dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h5>Get started</h5>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>About us</h5>
+                    <ul>
+                        <li><a href="company">Team Information</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>{{ account }}</h5>
+                    <ul>
+                        <li><a href="exit">{{ exit }}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2021 Horizon</p>
+
+        </div>
+    </footer>
+    <script src="static/external/js/jquery.min.js"></script>
+    <script src="static/external/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="static/external/js/smoothproducts.min.js"></script>
+    <script src="static/external/js/theme.js"></script>
+</body>
+
+</html>

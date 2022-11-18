@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Music List - Horizon-Music</title>
+    <link rel="stylesheet" href="/static/external/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="/static/external/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="/static/external/css/smoothproducts.css">
+    <link rel="shortcut icon" href="/static/custom/img/ico_64.ico">
+    <link rel="bookmark" href="/static/custom/img/ico_64.ico">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+        <div class="container"><a class="navbar-brand logo" href="/">Horizon-Music</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navcol-1">
+                <ul class="nav navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link active" href="/">All Music</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/mysonglist">My Song List</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/admin">Administration</a></li>
+                </ul>
+                <form class="form-inline mt-3 mt-md-0" action="/results" method="post">
+                <!--a input div to get user input-->
+                <!--use post function-->
+                <input class="form-control mr-sm-2" type="text" name="phrase" required="required"
+                       placeholder="What would you like?"
+                       aria-label="Search" {{disabled}}>
+                <!--the submit button-->
+                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit" {{ disabled }}>Start looking</button>
+            </form>
+            </div>
+        </div>
+    </nav>
+    <main class="page service-page">
+        <section class="clean-block clean-services dark">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">{{ type }}</h2>
+                    <p>{{ page_info }}</p>
+                </div>
+                <div class="row">
+                <table border="1" align="center">
+                    <tr>
+                        <th width="100px">ID</th>
+                        <th width="300px">Name</th>
+                        <th width="200px">Picture</th>
+                        <th width="200px">Price</th>
+                        <th width="200px">Option</th>
+                    </tr>
+                    {% for lista in allmusic %}
+                        <tr>
+                            <td width="100px">{{ lista[0] }}</td>
+                            <td width="300px">{{ lista[1] }}</td>
+                            <td width="200px">{{ lista[2] }}</td>
+                            <td width="200px">{{ lista[3] }}</td>
+{#                            <td width="200px">{{ lista[4] }}</td>#}
+                            <td width="200px"><button {{ lista[4] }} class="btn btn-danger btn-sm" type="button" style="width: 100%" onclick="location.href = {{ "'"+url_for('music_manage_del',id=lista[0])+"'" }};">Delete</button></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="page-footer dark">
+        <div class="footer-copyright">
+            <p>© 2021 Horizon</p>
+        </div>
+    </footer>
+    <script src="/static/external/js/jquery.min.js"></script>
+    <script src="/static/external/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="/static/external/js/smoothproducts.min.js"></script>
+    <script src="/static/external/js/theme.js"></script>
+</body>
+
+</html>

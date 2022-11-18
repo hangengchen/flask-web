@@ -1,0 +1,24 @@
+table {
+    /*set table back ground color*/
+    background-color: lightpink;
+    border-color: black;
+    /*set table width is 70%*/
+    width: 70%;
+    /*set line of table is black*/
+    color: black;
+}
+
+tbody tr {
+    /*transport the table td tr*/
+    display: inline-block;
+}
+
+th, td {
+    /*transport the table td tr*/
+    display: block;
+}
+
+td {
+    /*set the td height is fix at 35 px*/
+    height: 35px;
+}

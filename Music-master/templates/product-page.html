@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="shortcut icon" href="/static/custom/img/ico_64.ico">
+    <link rel="bookmark" href="/static/custom/img/ico_64.ico">
+    <title>Music Detail - Horizon-Music</title>
+    <link rel="stylesheet" href="/static/external/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="/static/external/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="/static/external/css/smoothproducts.css">
+    <link rel="stylesheet" href="/static/external/APlayer/css/APlayer.min.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+        <div class="container"><a class="navbar-brand logo" href="/">Horizon-Music</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navcol-1">
+                <ul class="nav navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link active" href="/">All Music</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/mysonglist">My Song List</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/admin">Administration</a></li>
+                </ul>
+                <form class="form-inline mt-3 mt-md-0" action="/results" method="post">
+                <!--a input div to get user input-->
+                <!--use post function-->
+                <input class="form-control mr-sm-2" type="text" name="phrase" required="required"
+                       placeholder="What would you like?"
+                       aria-label="Search" {{disabled}}>
+                <!--the submit button-->
+                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit" {{ disabled }}>Start looking</button>
+            </form>
+            </div>
+        </div>
+    </nav>
+    <main class="page product-page">
+        <section class="clean-block clean-product dark">
+            <div class="container">
+                <div class="block-content">
+                    <div class="product-info">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <img class="img-fluid d-block mx-auto" src={{ picture }}>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="info">
+                                    <h3>{{ name }}</h3>
+                                    <span>{{ album }}</span>
+                                    <div class="price">
+                                        <h3>¥{{ price }}</h3>
+                                    </div><button class="btn btn-primary" type="button" onclick="location.href = {{ "'"+url_for('add_tomymusiclist',id=id)+"'" }};"><i class="icon-basket"></i>{{ add }}</button>
+                                    <p>Please scan the following QR code to purchase songs<br/>(Wechat or Alipay)</p>
+                                    <img src="/static/custom/img/pay.jpg" width="100" height="100">
+                                    <img src="/static/custom/img/Alipay.jpg" width="100" height="100">
+                                    <div class="summary">
+                                        <p>{{ info }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="aplayer"></div>
+                        <script src="/static/external/APlayer/js/APlayer.min.js"></script>
+                        <script>
+                            const ap = new APlayer({
+                                container: document.getElementById('aplayer'),
+                                fixed: false,                //是否附着页面底部，否为false
+                                autoplay: true,             //是否自动播放，否为false,移动端不能生效
+                                volume: 1,                //初始音量（0~1）
+                                lrcType: 3,                 //歌词模式（1、HTML模式 2、js模式 3、lrc文件模式）
+                                mutex: true,                //互斥模式：阻止多个播放器同时播放，当前播放器播放时暂停其他播放器
+                                order: 'list',            //音频循环顺序（'list'：顺序, 'random'：随机）
+                                preload: 'auto',            //预加载（'none'：不预加载, 'metadata'：元数据, 'auto'：自动）
+                                listFolded: true,          //列表默认折叠，开启为true
+                                theme: '#3b99e0',           //主题颜色
+                                audio: [{
+                                    name: '{{ name }}',           //歌曲名称
+                                    artist: '{{ singer }}',       //歌曲作者
+                                    url: '{{ path }}',         //歌曲源文件地址
+                                    cover: '{{ picture }}',     //歌曲封面地址
+                                    lrc: '{{ lrc }}',        //歌曲的歌词文件
+                                    {#theme: '#eeeeee',        //主题颜色（优先）#}
+                                    theme: '#3b99e0'        //主题颜色（优先）
+                                },
+                                ]
+                            });
+                        </script>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="page-footer dark">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h5>Get started</h5>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>About us</h5>
+                    <ul>
+                        <li><a href="company">Team Information</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>Support</h5>
+                    <ul>
+                        <li><a href="faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>{{ account }}</h5>
+                    <ul>
+                        <li><a href="exit">{{ exit }}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2021 Horizon</p>
+
+        </div>
+    </footer>
+    <script src="/static/external/js/jquery.min.js"></script>
+    <script src="/static/external/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="/static/external/js/smoothproducts.min.js"></script>
+    <script src="/static/external/js/theme.js"></script>
+</body>
+
+</html>

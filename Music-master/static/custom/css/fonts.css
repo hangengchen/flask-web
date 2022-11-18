@@ -1,0 +1,11 @@
+/*import a font named it myFirstFont*/
+@font-face {
+    font-family: myFirstFont;
+    /*the location of font*/
+    src: url('/app/staticatic/fonts/Chalkduster.ttf');
+}
+
+/*set div font to myFirstFont*/
+div {
+    font-family: myFirstFont;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Add Music - Horizon-Music</title>
+    <link rel="stylesheet" href="/static/external/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="/static/external/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="/static/external/css/smoothproducts.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+        <div class="container"><a class="navbar-brand logo" href="/">Horizon-Music</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navcol-1">
+                <ul class="nav navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link active" href="/">All Music</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/mysonglist">My Song List</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/admin">Administration</a></li>
+                </ul>
+                <form class="form-inline mt-3 mt-md-0" action="/results" method="post">
+                <!--a input div to get user input-->
+                <!--use post function-->
+                <input class="form-control mr-sm-2" type="text" name="phrase" required="required"
+                       placeholder="What would you like?"
+                       aria-label="Search" {{disabled}}>
+                <!--the submit button-->
+                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit" {{ disabled }}>Start looking</button>
+            </form>
+            </div>
+        </div>
+    </nav>
+    <main class="page shopping-cart-page">
+        <section class="clean-block clean-cart dark">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">Update Music</h2>
+                    <p>Complete the information and upload the mp3, picture and lrc</p>
+                    <p style="color: red">!!! If You Add Your Music !!!</p>
+                    <p style="color: red">!!! Need To Ask Administrator Delete !!!</p>
+                </div>
+                <div class="content">
+                    <div class="row no-gutters">
+                        <div class="col-md-12 col-lg-12">
+                            <div class="summary">
+                                <h3>Business ID: {{ add_id }}</h3>
+                                <form enctype='multipart/form-data' method='POST'>
+                                    <h4><span class="text">Song name</span><input class="price input-group-text" type="input" name="name" value="{{ read_name }}" required></h4>
+                                    <h4><span class="text">Singer</span><input class="price input-group-text" type="input" name="singer" value="{{ read_singer }}" required></h4>
+                                    <h4><span class="text">Album</span><input class="price input-group-text" type="input" name="album" value="{{ read_album }}" required></h4>
+                                    <h4><span class="text">Info</span><input class="price input-group-text" type="input" name="info" value="{{ read_info }}" required></h4>
+                                    <h4><span class="text">MP3</span><input class="price input-group-append" type="file" name="file" required></h4>
+                                    <h4><span class="text">Image</span><input class="price input-group-append" type="file" name="file2" required></h4>
+                                    <h4><span class="text">LRC</span><input class="price input-group-append" type="file" name="file3" required></h4>
+                                    <h4><span class="text">Price</span><input class="price input-group-text" type="number" name="price" value="{{ price }}" required></h4>
+                                    <button class="btn btn-primary btn-block btn-lg" type="submit">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="page-footer dark">
+        <div class="footer-copyright">
+            <p>© 2021 Horizon</p>
+        </div>
+    </footer>
+    <script src="/static/external/js/jquery.min.js"></script>
+    <script src="/static/external/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="/static/external/js/smoothproducts.min.js"></script>
+    <script src="/static/external/js/theme.js"></script>
+</body>
+
+</html>

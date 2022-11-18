@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Music List - Horizon-Music</title>
+    <link rel="stylesheet" href="static/external/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="static/external/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="static/external/css/smoothproducts.css">
+    <link rel="shortcut icon" href="static/custom/img/ico_64.ico">
+    <link rel="bookmark" href="static/custom/img/ico_64.ico">
+</head>
+
+<body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+        <div class="container"><a class="navbar-brand logo" href="/">Horizon-Music</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navcol-1">
+                <ul class="nav navbar-nav mr-auto">
+                    <li class="nav-item"><a class="nav-link active" href="/">All Music</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/mysonglist">My Song List</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/admin">Administration</a></li>
+                </ul>
+                <form class="form-inline mt-3 mt-md-0" action="/results" method="post">
+                <!--a input div to get user input-->
+                <!--use post function-->
+                <input class="form-control mr-sm-2" type="text" name="phrase" required="required"
+                       placeholder="What would you like?"
+                       aria-label="Search" {{disabled}}>
+                <!--the submit button-->
+                <button class="btn btn-outline-dark my-2 my-sm-0" type="submit" {{ disabled }}>Start looking</button>
+            </form>
+            </div>
+        </div>
+    </nav>
+    <main class="page pricing-table-page">
+        <section class="clean-block clean-pricing dark">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">ADMIN MANAGE</h2>
+                    <p>If he is suffering, he will be considered helping him. Now that I am honest and not a singer, I love lions' life.</p>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-md-5 col-lg-4">
+                        <div class="clean-pricing-item">
+                            <div class="ribbon-yellow"><span>WARNING</span></div>
+                            <div class="heading">
+                                <h3>DELETE MUSIC</h3>
+                            </div>
+                            <p>Delete business account music on our website.</p>
+                            <button class="btn btn-warning btn-block" type="button" onclick="location.href='music_manage'">OPERATION</button></div>
+                    </div>
+                    <div class="col-md-5 col-lg-4">
+                        <div class="clean-pricing-item">
+                            <div class="ribbon-red"><span>DANGER</span></div>
+                            <div class="heading">
+                                <h3>DELETE ACCOUNT</h3>
+                            </div>
+                            <p>Delete user and business account on our website.</p>
+                            <button class="btn btn-danger btn-block" type="button" onclick="location.href='user_manage'" >OPERATION</button></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="page-footer dark">
+        <div class="footer-copyright">
+            <p>© 2021 Horizon</p>
+        </div>
+    </footer>
+    <script src="static/external/js/jquery.min.js"></script>
+    <script src="static/external/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="static/external/js/smoothproducts.min.js"></script>
+    <script src="static/external/js/theme.js"></script>
+</body>
+
+</html>
